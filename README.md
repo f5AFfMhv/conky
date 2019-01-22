@@ -18,3 +18,5 @@ INSTALATION:
 5. Create .conky directory in user home.
 6. Move	get_publicIP.py to ~/.conky (make sure script can be executed by your user).
 
+![conky_full](https://raw.githubusercontent.com/f5AFfMhv/conky/master/conky_full.png)
+![just_conky](https://raw.githubusercontent.com/f5AFfMhv/conky/master/just_conky.png)
