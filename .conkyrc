@@ -1,0 +1,131 @@
+#!/usr/bin/conky -d -c
+# .conkyrc configuration.
+# code base is from didi79
+# https://www.deviantart.com/didi79/art/conky-config-127651851
+
+alignment top_right
+background yes
+#border_margin 5
+border_width 5
+color0 555555		
+color1 FCAF3E			
+color2 64574e			
+color3 a82553			
+color4 5e1014			
+color5 64574e			
+color6 a7a7a7			
+color7 8888CC			
+color8 9d9c61			
+color9 525276			
+cpu_avg_samples 2
+default_color e1e1e1		
+default_outline_color 000000 	
+default_shade_color 000000	
+double_buffer yes
+draw_borders no
+draw_graph_borders no
+draw_outline no
+draw_shades yes
+gap_x 5
+gap_y 5
+#max_specials 1024
+max_user_text 10000
+maximum_width 250
+minimum_size 850
+net_avg_samples 2
+no_buffers yes
+override_utf8_locale yes
+own_window yes
+own_window_colour 000000	# Black
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_transparent yes
+own_window_type override 	## normal
+pad_percents 2			
+short_units yes			
+stippled_borders 3
+text_buffer_size 10000
+total_run_times 0
+update_interval 1.0
+uppercase no
+use_spacer right
+use_xft yes
+xftalpha 0.75
+xftfont sans:size=10
+
+TEXT
+
+#TIME
+${color1}${goto 35}${font DejaVu Sans Mono:size=54}${time %H}${font DejaVu Sans Mono:size=30}${voffset -25}'${time %M}${font DejaVu Sans Mono:size=18}${voffset -12}${time %S}
+${color1}${goto 130}${voffset 1}${font :size=10}${time %A}
+${color1}${goto 130}${voffset 1}${font :size=10}${time %d %B %Y}
+
+#CALENDAR
+${color1}${font led:size=15}CALENDAR ${font}$hr
+${color}${font Monospace:size=14}${execi 10 gcal --starting-day=monday | sed s/'<'/'('/g | sed s/'>'/')'/g}
+#
+#SYSTEM
+${color1}${font led:size=15}SYSTEM ${font}$hr
+${color6}${font led:size=10}OS:${alignr}${color}${exec cat /etc/lsb-release | grep DISTRIB_DESCRIPTION | cut -f2 -d'='}
+${color6}${font led:size=10}CPU:${alignr}${color}${exec cat /proc/cpuinfo | grep -m 1 name | awk '{print $6}'}
+${color6}${font led:size=10}Kernel: ${alignr}${color}$kernel
+${color6}${font led:size=10}Uptime:${alignr}${color}${uptime}
+
+#CPU
+${voffset -10}${color1}${font led:size=15}CPU ${font}$hr
+${color6}${font led:size=10}Core 1:  ${color}${cpu cpu1}% $alignr ${freq_g (1)} GHz ${exec sensors | grep "Core 0" | cut --bytes=14-23}
+${color6}${font led:size=10}Core 2:  ${color}${cpu cpu2}% $alignr ${freq_g (2)} GHz ${exec sensors | grep "Core 1" | cut --bytes=14-23}
+${color6}${font led:size=10}Core 3:  ${color}${cpu cpu3}% $alignr ${freq_g (3)} GHz ${exec sensors | grep "Core 2" | cut --bytes=14-23}
+${color6}${font led:size=10}Core 4:  ${color}${cpu cpu4}% $alignr ${freq_g (4)} GHz ${exec sensors | grep "Core 3" | cut --bytes=14-23}
+${color6}${font led:size=10}Total processes: ${color}${alignr}${processes}
+
+#TOP CPU/RAM
+${voffset -7}${color1}${font}NAME ${goto 125}PID${goto 165}CPU% ${alignr}MEM%
+${color}${font :size=10}${goto 9}${top name 1}${goto 115}${top pid 1}${goto 160}${top cpu 1}${goto 210}${top mem 1}
+${color}${font :size=10}${goto 9}${top name 2}${goto 115}${top pid 2}${goto 160}${top cpu 2}${goto 210}${top mem 2}
+${color}${font :size=10}${goto 9}${top name 3}${goto 115}${top pid 3}${goto 160}${top cpu 3}${goto 210}${top mem 3}
+${color}${font :size=10}${goto 9}${top name 4}${goto 115}${top pid 4}${goto 160}${top cpu 4}${goto 210}${top mem 4}
+${color}${font :size=10}${goto 9}${top name 5}${goto 115}${top pid 5}${goto 160}${top cpu 5}${goto 210}${top mem 5}
+
+#RAM
+${voffset -6}${color1}${font led:size=15}RAM${font}$hr
+${color6}${font :size=10}RAM:${goto 100}${color}${mem} / ${memmax} ${alignr} ${memperc}%
+${membar 10}
+
+#DRIVES
+${voffset -6}${color1}${font led:size=15}DRIVE${font}$hr
+${color6}${font :size=10}root:${goto 100}${color}${fs_used /} / ${fs_size /} ${alignr} ${fs_used_perc /}%
+${color6}${font :size=10}DATA:${goto 100}${color}${fs_used /mnt/DATA} / ${fs_size /mnt/DATA} ${alignr} ${fs_used_perc /mnt/DATA}%
+${color6}${font :size=10}backup:${goto 100}${color}${fs_used /mnt/backup} / ${fs_size /mnt/backup} ${alignr} ${fs_used_perc /mnt/backup}%
+#${color6}${font :size=10}Network:${goto 100}${color}${fs_used /mnt/NetworkDrive} / ${fs_size /mnt/NetworkDrive} ${alignr} ${fs_used_perc /mnt/NetworkDrive}%
+
+#NETWORK
+${voffset -10}${color1}${font led:size=15}NETWORK${font}$hr
+${color6}${font :size=10}gateway: ${color}${alignr}${gw_ip}
+${color6}${font :size=10}local eth: ${color}$alignr${addr enp0s31f6}
+${color6}${font :size=10}public: ${alignr}${color}${execi 60 curl ipinfo.io > /tmp/publicIP.tmp; python ~/.conky/get_publicIP.py IP}
+${alignr}${execi 20 python ~/.conky/get_publicIP.py COUNTRY} ${execi 20 python ~/.conky/get_publicIP.py CITY}
+${alignr}${font :size=7}${execi 20 python ~/.conky/get_publicIP.py ORG}$font
+
+Down: ${downspeed enp0s31f6}/s 
+Day: ${totaldown enp0s31f6}${voffset -12}${alignr}${downspeedgraph enp0s31f6 25,100 64574e 64574e}
+Up: ${upspeed enp0s31f6}/s
+Day: ${totalup enp0s31f6}${voffset -12}${alignr}${upspeedgraph enp0s31f6 25,100 64574e 64574e}
+#OPEN PORTS
+${voffset -20}
+${goto 9}${color1}${font led:size=15}OPEN PORTS${font}$hr
+${goto 9}${font led:size=10,weight:bold}${color1}IP${alignr}DPORT
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  0}${alignr 1}${tcp_portmon 1 65535 rport  0}
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  1}${alignr 1}${tcp_portmon 1 65535 rport  1}
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  2}${alignr 1}${tcp_portmon 1 65535 rport  2}
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  3}${alignr 1}${tcp_portmon 1 65535 rport  3}
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  4}${alignr 1}${tcp_portmon 1 65535 rport  4}
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  5}${alignr 1}${tcp_portmon 1 65535 rport  5}
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  6}${alignr 1}${tcp_portmon 1 65535 rport  6}
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  7}${alignr 1}${tcp_portmon 1 65535 rport  7}
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  8}${alignr 1}${tcp_portmon 1 65535 rport  8}
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  9}${alignr 1}${tcp_portmon 1 65535 rport  9}
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip 10}${alignr 1}${tcp_portmon 1 65535 rport 10}
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip 11}${alignr 1}${tcp_portmon 1 65535 rport 11}
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip 12}${alignr 1}${tcp_portmon 1 65535 rport 12}
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip 13}${alignr 1}${tcp_portmon 1 65535 rport 13}
+${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip 14}${alignr 1}${tcp_portmon 1 65535 rport 14}
