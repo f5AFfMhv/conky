@@ -5,10 +5,10 @@
 #
 # by Martynas J.
 
-############################################################
-#THIS SCRIPT DOESN'T HAVE MEANING ANYMORE BECAUSE IPINFO.IO#
-#REMOVED 1000 FREE PUBLIC IP CHECK PER DAY FEATURE         #
-############################################################
+##############################################################
+# THIS SCRIPT DOESN'T HAVE MEANING ANYMORE BECAUSE IPINFO.IO #
+# REMOVED 1000 FREE PUBLIC IP CHECK PER DAY FEATURE          #
+##############################################################
 
 import sys
 
