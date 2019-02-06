@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-# Opens file which conatains public IP info from ipinfo.io
-# and process text for conky
+# Opens text document which conatains stdo of "curl ipinfo.io"
+# and processes text for conky
 #
 # by Martynas J.
 
@@ -58,7 +58,7 @@ def main():
     try:
         update_label(sys.argv[1])
     except:
-        print "Error. Pass only one of these parameters to function: IP, CITY, COUNTRY, ORG"
+        print "Error. Pass only one of these parameters: IP, CITY, COUNTRY, ORG"
 
 main()
      
