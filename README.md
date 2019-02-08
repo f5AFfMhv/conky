@@ -3,7 +3,7 @@ Code base is from <a href="https://www.deviantart.com/didi79/art/conky-config-12
 
 <b>DEPENDENCIES:</b>
 <ul>
-  <li>Python</li>
+  <li>python</li>
   <li>conky</li>
   <li>gcal</li>
 </ul>
@@ -19,5 +19,7 @@ Tested on Linux Mint 19 with conky 1.10.8. Screenshots are from 27" 1440p monito
 5. Create .conky directory in user home.
 6. Move	get_publicIP.py to ~/.conky (make sure script can be executed by your user).
 
-![conky_full](https://raw.githubusercontent.com/f5AFfMhv/conky/master/conky_full.png)
-![just_conky](https://raw.githubusercontent.com/f5AFfMhv/conky/master/just_conky.png)
+![conky_full](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/just_conky.png)
+![just_conky](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/desk_brown.png)
+![just_conky](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/desk_black.png)
+![just_conky](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/desk_blue.png)
