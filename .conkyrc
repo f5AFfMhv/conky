@@ -101,10 +101,7 @@ ${color6}${font :size=10}backup:${goto 100}${color}${fs_used /mnt/backup} / ${fs
 ${voffset -10}${color1}${font led:size=15}NETWORK${font}$hr
 ${color6}${font :size=10}gateway: ${color}${alignr}${gw_ip}
 ${color6}${font :size=10}local eth: ${color}$alignr${addr enp0s31f6}
-${color6}${font :size=10}public: ${alignr}${color}${execi 60 curl ipinfo.io > /tmp/publicIP.tmp; python ~/.conky/get_publicIP.py IP}
-${alignr}${execi 20 python ~/.conky/get_publicIP.py COUNTRY} ${execi 20 python ~/.conky/get_publicIP.py CITY}
-${alignr}${font :size=7}${execi 20 python ~/.conky/get_publicIP.py ORG}$font
-
+${color6}${font :size=10}public: ${alignr}${color}${execpi 60 curl ipinfo.io > /tmp/publicIP.tmp; python ~/.conky/get_publicIP.py IP; python ~/.conky/get_publicIP.py COUNTRY; python ~/.conky/get_publicIP.py CITY; python ~/.conky/get_publicIP.py ORG}
 #Alternatively check public ip from api.ipify.org
 #${color6}${font :size=10}public: ${alignr}${color}${execi 60 curl https://api.ipify.org/?format=raw}
 
