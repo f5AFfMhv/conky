@@ -61,7 +61,7 @@ ${color1}${goto 130}${voffset 1}${font :size=10}${time %d %B %Y}
 
 #CALENDAR
 ${color1}${font led:size=15}CALENDAR ${font}$hr
-${color}${font Monospace:size=14}${execpi 60 DJS=$(date +%_d); gcal --starting-day=monday | sed s/'<'/' '/g | sed s/'>'/' '/g | sed s/"$DJS"/'${color red}'"$DJS"'$color'/g}
+${color}${font Monospace:size=14}${execpi 60 DJS=$(date +%_d); gcal --starting-day=monday | sed s/'<'/' '/g | sed s/'>'/' '/g | sed s/" $DJS "/'${color red}'" $DJS "'${color white}'/g}
 #SYSTEM
 ${color1}${font led:size=15}SYSTEM ${font}$hr
 ${color6}${font led:size=10}OS:${alignr}${color}${exec cat /etc/lsb-release | grep DISTRIB_DESCRIPTION | cut -f2 -d'='}
