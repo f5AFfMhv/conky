@@ -4,9 +4,8 @@
 # https://www.deviantart.com/didi79/art/conky-config-127651851
 
 alignment top_right
-xinerama_head 0
+xinerama_head 0 #show on first display
 background yes
-#border_margin 5
 border_width 5
 color0 555555		
 color1 FCAF3E			
@@ -20,8 +19,8 @@ color8 9d9c61
 color9 525276			
 cpu_avg_samples 2
 default_color e1e1e1		
-default_outline_color 000000 	
-default_shade_color 000000	
+default_outline_color 000000	
+default_shade_color 000000
 double_buffer yes
 draw_borders no
 draw_graph_borders no
@@ -29,7 +28,6 @@ draw_outline no
 draw_shades yes
 gap_x 5
 gap_y 5
-#max_specials 1024
 max_user_text 10000
 maximum_width 250
 minimum_size 850
@@ -37,10 +35,10 @@ net_avg_samples 2
 no_buffers yes
 override_utf8_locale yes
 own_window yes
-own_window_colour 000000	# Black
+own_window_colour 000000
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 own_window_transparent yes
-own_window_type override 	## normal
+own_window_type override
 pad_percents 2			
 short_units yes			
 stippled_borders 3
