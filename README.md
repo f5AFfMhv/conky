@@ -23,7 +23,7 @@ mkdir ~/.conky
 4. Modify <b>.conkyrc</b> and <b>.conkyrc2</b> to match your system parameters (cpu cores, drive mount points, network adapter name, monitor configuration).
 5. Make <b>conky_startup.sh</b> executable.
 ```
-chown +x ~/.conky/conky_startup.sh
+chmod +x ~/.conky/conky_startup.sh
 ```
 6. Add <b>conky_startup.sh</b> to application autostart. On xfce desktop go to
 Settings > Session and Startup > Application Autostart > Add
