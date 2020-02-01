@@ -29,6 +29,16 @@ chmod +x ~/.conky/conky_startup.sh
 Settings > Session and Startup > Application Autostart > Add
 7. You can run <b>conky_startup.sh</b> to start conky.
 
+## Note
+If you are using gnome desktop, you will probably need to change in <b>conkyrc</b> and <b>conkyrc2</b>
+```
+own_window_type override
+```
+to
+```
+own_window_type desktop
+```
+
 ![conky_full](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/just_conky.png)
 ![just_conky](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/desk_blue.png)
 ![log_conky](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/log_conky.png)
