@@ -1,7 +1,7 @@
 This is my conky template.
 Code base is from <a href="https://www.deviantart.com/didi79/art/conky-config-127651851"><b>didi79</b></a>
 
-##DEPENDENCIES
+## DEPENDENCIES
 <ul>
   <li>python3</li>
   <li>conky</li>
@@ -10,10 +10,10 @@ Code base is from <a href="https://www.deviantart.com/didi79/art/conky-config-12
 
 Tested on Linux Mint 19 with conky version 1.10.8. Screenshots are from 27" 1440p monitor.
 
-##kern.log conky
+## kern.log conky
 Added second conky config file <b>.conkyrc2</b> which displays last 25 messages from kern.log file on the second monitor. See screenshot from 27" 1080p monitor at the bottom.
 
-##INSTALATION
+## INSTALATION
 1. Install dependencies.
 2. Create <b>.conky</b> folder in your home directory.
 ```
