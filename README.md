@@ -11,7 +11,7 @@ Code base is from <a href="https://www.deviantart.com/didi79/art/conky-config-12
 Tested on Linux Mint 19 with conky version 1.10.8. Screenshots are from 27" 1440p monitor.
 
 ## kern.log conky
-Added second conky config file <b>.conkyrc2</b> which displays last 25 messages from kern.log file on the second monitor. See screenshot from 27" 1080p monitor at the bottom.
+Added second conky config file <b>conkyrc2</b> which displays last 25 messages from kern.log file on the second monitor. See screenshot from 27" 1080p monitor at the bottom.
 
 ## Installation
 1. Install dependencies.
@@ -20,7 +20,7 @@ Added second conky config file <b>.conkyrc2</b> which displays last 25 messages 
 mkdir ~/.conky
 ```
 3. Move files to <b>.conky</b>.
-4. Modify <b>.conkyrc</b> and <b>.conkyrc2</b> to match your system parameters (cpu cores, drive mount points, network adapter name, monitor configuration).
+4. Modify <b>conkyrc</b> and <b>conkyrc2</b> to match your system parameters (cpu cores, drive mount points, network adapter name, monitor configuration).
 5. Make <b>conky_startup.sh</b> executable.
 ```
 chmod +x ~/.conky/conky_startup.sh
