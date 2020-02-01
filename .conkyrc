@@ -4,6 +4,7 @@
 # https://www.deviantart.com/didi79/art/conky-config-127651851
 
 alignment top_right
+xinerama_head 0
 background yes
 #border_margin 5
 border_width 5
@@ -101,7 +102,7 @@ ${color6}${font :size=10}backup:${goto 100}${color}${fs_used /mnt/backup} / ${fs
 ${voffset -10}${color1}${font led:size=15}NETWORK${font}$hr
 ${color6}${font :size=10}gateway: ${color}${alignr}${gw_ip}
 ${color6}${font :size=10}local eth: ${color}$alignr${addr enp0s31f6}
-${color6}${font :size=10}public: ${alignr}${color}${execpi 60 curl ipinfo.io > /tmp/publicIP.tmp; python ~/.conky/get_publicIP.py IP; python ~/.conky/get_publicIP.py COUNTRY; python ~/.conky/get_publicIP.py CITY; python ~/.conky/get_publicIP.py ORG}
+${color6}${font :size=10}public: ${alignr}${color}${execpi 60 curl ipinfo.io > /tmp/publicIP.tmp; python3 ~/.conky/get_publicIP.py IP; python3 ~/.conky/get_publicIP.py COUNTRY; python3 ~/.conky/get_publicIP.py CITY; python3 ~/.conky/get_publicIP.py ORG}
 #Alternatively check public ip from api.ipify.org
 #${color6}${font :size=10}public: ${alignr}${color}${execi 60 curl https://api.ipify.org/?format=raw}
 

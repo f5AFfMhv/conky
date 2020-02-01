@@ -1,6 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
-# Opens text document which conatains stdo of "curl ipinfo.io"
+# Opens text document which contains stdo of "curl ipinfo.io"
 # and processes text for conky
 #
 # by Martynas J.
@@ -40,25 +40,25 @@ def update_label(info):
                 count = count + 1
             
             if info == "IP":
-                print IP
+                print(IP)
             elif info == "COUNTRY":
-                print COUNTRY
+                print(COUNTRY)
             elif info == "CITY":
-                print CITY
+                print(CITY)
             elif info == "ORG":
-                print ORG
+                print(ORG)
             else:
-                print "'" + info + "'" + " is invalid parameter. Only use: IP, CITY, COUNTRY, ORG"
+                print("'" + info + "'" + " is invalid parameter. Only use: IP, CITY, COUNTRY, ORG")
 
         except:
-            print "Error: /tmp/publicIP.tmp doesn't exist."
+            print("Error: /tmp/publicIP.tmp doesn't exist.")
 
 
 def main():
     try:
         update_label(sys.argv[1])
     except:
-        print "Error. Pass only one of these parameters: IP, CITY, COUNTRY, ORG"
+        print("Error. Pass only these parameters: IP, CITY, COUNTRY, ORG.")
 
 main()
      
