@@ -42,3 +42,4 @@ own_window_type desktop
 ![conky_full](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/just_conky.png)
 ![just_conky](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/desk_blue.png)
 ![log_conky](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/log_conky.png)
+![both_conky](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/both.png)

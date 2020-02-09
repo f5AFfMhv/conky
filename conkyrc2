@@ -2,7 +2,7 @@
 # .conkyrc configuration for second conky window displaying kern.log
 
 alignment bottom_left
-xinerama_head 1 #show on second display
+xinerama_head 0 #show on second display
 background yes
 border_width 5
 color0 555555		
@@ -24,7 +24,7 @@ draw_graph_borders no
 draw_outline no
 draw_shades yes
 gap_x 0
-gap_y -20
+gap_y -5
 max_user_text 10000
 maximum_width 1920
 minimum_size 1920
@@ -54,7 +54,7 @@ TEXT
 ${color}${font led:size=10} ${exec date}${alignr}${color1}${font DejaVu Sans Mono:size=10} kern.log
 ${color1}${font led:size=15}${font}$hr
 #LOG FILE
-${color6}${font Monospace:size=9}${execpi 5 tail -5 /var/log/kern.log | awk '{$1=$2=""; $4=$5="-"; print $0}' | sed '1~2 s/$/${color}/g' | sed '0~2 s/$/${color6}/g'}
+${color6}${font Monospace:size=9}${execpi 5 tail -3 /var/log/kern.log | awk '{$1=$2=""; $4=$5="-"; print $0}' | sed '1~2 s/$/${color}/g' | sed '0~2 s/$/${color6}/g'}
 #${color1}${font led:size=15}${font}$hr
 
 
