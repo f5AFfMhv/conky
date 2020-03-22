@@ -23,7 +23,7 @@ mkdir ~/.config/conky
 ```
 3. Move files to <b>conky</b>.
 4. Modify <b>conkyrc</b> and <b>conkyrc2</b> to match your system parameters (cpu cores, drive mount points, network adapter name, monitor configuration).
-5. Make <b>conky_startup.sh</b> executable.
+5. Make scripts executable.
 ```
 chmod +x ~/.config/conky/conky_startup.sh
 ```
