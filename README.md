@@ -1,6 +1,8 @@
 This is my conky template.
 Code base is from <a href="https://www.deviantart.com/didi79/art/conky-config-127651851"><b>didi79</b></a>
 
+![both_conky](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/conky200322.png)
+
 ## Dependencies
 <ul>
   <li>python3</li>
@@ -25,7 +27,7 @@ mkdir ~/.config/conky
 4. Modify <b>conkyrc</b> and <b>conkyrc2</b> to match your system parameters (cpu cores, drive mount points, network adapter name, monitor configuration).
 5. Make scripts executable.
 ```
-chmod +x ~/.config/conky/conky_startup.sh
+chmod +x ~/.config/conky/xxxxx.sh
 ```
 6. Add <b>conky_startup.sh</b> to application autostart. On xfce desktop go to
 Settings > Session and Startup > Application Autostart > Add
@@ -40,5 +42,3 @@ to
 ```
 own_window_type desktop
 ```
-
-![both_conky](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/conky200322.png)
