@@ -12,6 +12,7 @@ Tested on Linux Mint 19.3 with conky version 1.10.8. Screenshots are from 27" 14
 
 ## kern.log conky
 Added second conky config file <b>conkyrc2</b> which displays last 3 messages from kern.log file.
+<i>2020-03-22</i> Added COVID-19 statistics.
 
 ## Installation
 1. Install dependencies.
@@ -39,5 +40,4 @@ to
 own_window_type desktop
 ```
 
-![conky_full](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/just_conky.png)
-![both_conky](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/both.png)
+![both_conky](https://raw.githubusercontent.com/f5AFfMhv/conky/master/screenshots/conky200322.png)
