@@ -102,9 +102,9 @@ ${color6}${font :size=10}backup:${goto 100}${color}${fs_used /mnt/backup} / ${fs
 ${voffset -10}${color1}${font led:size=15}NETWORK${font}$hr
 ${color6}${font :size=10}gateway: ${color}${alignr}${gw_ip}
 ${color6}${font :size=10}local eth: ${color}$alignr${addr enp4s0}
-${color6}${font :size=10}public: ${alignr}${color}${execpi 60 curl ipinfo.io > /tmp/publicIP.tmp; python3 ~/.config/conky/get_publicIP.py IP; python3 ~/.config/conky/get_publicIP.py COUNTRY; python3 ~/.config/conky/get_publicIP.py CITY; python3 ~/.config/conky/get_publicIP.py ORG}
+${color6}${font :size=10}public: ${alignr}${color}${execpi 60 curl -s ipinfo.io > /tmp/publicIP.tmp; python3 ~/.config/conky/get_publicIP.py IP; python3 ~/.config/conky/get_publicIP.py COUNTRY; python3 ~/.config/conky/get_publicIP.py CITY; python3 ~/.config/conky/get_publicIP.py ORG}
 #Alternatively check public ip from api.ipify.org
-#${color6}${font :size=10}public: ${alignr}${color}${execi 60 curl https://api.ipify.org/?format=raw}
+#${color6}${font :size=10}public: ${alignr}${color}${execi 60 curl -s https://api.ipify.org/?format=raw}
 
 Down: ${downspeed enp4s0}/s 
 Day: ${totaldown enp4s0}${voffset -12}${alignr}${downspeedgraph enp4s0 25,100 64574e 64574e}
