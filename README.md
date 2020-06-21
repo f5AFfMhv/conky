@@ -8,15 +8,15 @@ Code base is from <a href="https://www.deviantart.com/didi79/art/conky-config-12
   <li>python3</li>
   <li>conky</li>
   <li>gcal (terminal calendar)</li>
-  <li>gkeep (python3 module for Goole Keep)</li>
+  <li>gkeep (python3 module for Google Keep)</li>
 </ul>
 
 Tested on Linux Mint 19.3 with conky version 1.10.8. Screenshots are from 27" 1080p monitor.
 
 ## kern.log conky
-Added second conky config file <b>conkyrc2</b> which displays last 3 messages from kern.log file.
+Added second conky config file <b>conkyrc2</b> which displays last 10 messages from kern.log file.
 <br>
-<i>2020-03-22</i> Added COVID-19 statistics.
+<i>2020-03-22</i> Added COVID-19 statistics by country.
 
 ## Google Keep conky
 Added third conky config file <b>conkyrc3</b> which displays note from your Google Keep account.
@@ -48,8 +48,10 @@ Enter application password in auth.txt
 gkeep --auth </path/to/auth.txt> search-notes --not-deleted "<your note name>"
 ```
 If all is well update <b>conkyrc3</b> with your values.
+
 8. Add <b>conky_startup.sh</b> to application autostart. On xfce desktop go to
 Settings > Session and Startup > Application Autostart > Add
+
 9. You can run <b>conky_startup.sh</b> to start conky.
 
 ## Note
