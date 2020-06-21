@@ -1,7 +1,7 @@
 #!/usr/bin/conky -d -c
-# .conkyrc configuration for second conky window displaying kern.log
+# .conkyrc configuration for third conky window displaying Google Keep note
 
-alignment bottom_left
+alignment top_left
 xinerama_head 1 #show on second display
 background yes
 border_width 5
@@ -52,12 +52,5 @@ xftfont sans:size=10
 
 TEXT
 
-#HEADER
-${color1}${font DejaVu Sans Mono:size=12}  COVID-19 in Lithuania
-${execpi 5 ~/.config/conky/corona.sh Lithuania 1 8 4 7 5 | sed -e 1's/.*/${color6}  Rank:      ${color}&/' | sed -e 2's/.*/${color6}  Active:    ${color1}&/' | sed -e 3's/.*/${color6}  New Cases: ${color7}&/' | sed -e 4's/.*/${color6}  Recovered: ${color8}&/' | sed -e 5's/.*/${color6}  Deaths:    ${color3}&/'}${alignr}${color1}${font DejaVu Sans Mono:size=10} kern.log
-${color1}${font led:size=15}${font}$hr
 #LOG FILE
-${color6}${font Monospace:size=9}${execpi 5 tail -10 /var/log/kern.log | awk '{$1=$2=""; $4=$5="-"; print $0}' | sed '1~2 s/$/${color}/g' | sed '0~2 s/$/${color6}/g'}
-#${color1}${font led:size=15}${font}$hr
-
-
+${color1}${font led:size=15}${execpi 60 gkeep --auth /home/mint/skriptai/others/google_keep/auth.txt search-notes --not-deleted "My Note" | tail -n +3 | head -n -3 | sed '2i ${color6}${font Monospace:size=12}'}

@@ -4,7 +4,7 @@
 # https://www.deviantart.com/didi79/art/conky-config-127651851
 
 alignment top_right
-xinerama_head 0 #show on first display
+xinerama_head 1 #show on second display
 background yes
 border_width 5
 color0 555555		
