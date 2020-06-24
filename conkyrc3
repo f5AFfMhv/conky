@@ -52,5 +52,4 @@ xftfont sans:size=10
 
 TEXT
 
-#LOG FILE
-${color1}${font led:size=15}${execpi 60 gkeep --auth /home/mint/skriptai/others/google_keep/auth.txt search-notes --not-deleted "My Note" | tail -n +3 | head -n -3 | sed '2i ${color6}${font Monospace:size=12}'}
+${color1}${font led:size=15}${execpi 3600 gkeep search-notes --not-deleted "Projektai" | tail -n +3 | head -n -3 | sed '2i ${color6}${font Monospace:size=12}'}
