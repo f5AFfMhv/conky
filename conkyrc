@@ -59,14 +59,14 @@ TEXT
 ${color1}${goto 35}${font DejaVu Sans Mono:size=54}${time %H}${font DejaVu Sans Mono:size=30}${voffset -25}'${time %M}${font DejaVu Sans Mono:size=18}${voffset -12}${time %S}
 ${color1}${goto 130}${voffset 1}${font :size=10}${time %A}
 ${color1}${goto 130}${voffset 1}${font :size=10}${time %d %B %Y}
-
 #CALENDAR
-${color1}${font led:size=15}CALENDAR ${font}$hr
-${color}${font Monospace:size=14}${execpi 60 DJS=$(date +%_d); gcal --starting-day=monday | sed s/'<'/' '/g | sed s/'>'/' '/g | sed s/" $DJS "/'${color red}'" $DJS "'${color white}'/g}
+#${color1}${font led:size=15}CALENDAR ${font}$hr
+${color}${font Monospace:size=14}${execpi 60 DJS=$(date +%_d); gcal --starting-day=monday | sed s/'Mo Tu We Th Fr Sa Su'/'${color orange}Mo Tu We Th Fr Sa Su${color white}'/g | sed s/'<'/' '/g | sed s/'>'/' '/g | sed s/" $DJS "/'${color red}'" $DJS "'${color white}'/g}
 #SYSTEM
 ${color1}${font led:size=15}SYSTEM ${font}$hr
 ${color6}${font led:size=10}OS:${alignr}${color}${exec cat /etc/lsb-release | grep DISTRIB_DESCRIPTION | cut -f2 -d'='}
-${color6}${font led:size=10}CPU:${alignr}${color}${exec cat /proc/cpuinfo | grep -m 1 name | awk '{print $4 " " $5 " " $6 " " $7}'}
+#${color6}${font led:size=10}CPU:${alignr}${color}${exec cat /proc/cpuinfo | grep -m 1 name | awk '{print $4 " " $5 " " $6 " " $7}'}
+${color6}${font led:size=10}CPU:${alignr}${color}${exec cat /proc/cpuinfo | grep -m 1 name | awk '{$1=$2=$3=$4=""; print $0}'}
 ${color6}${font led:size=10}Kernel: ${alignr}${color}$kernel
 ${color6}${font led:size=10}Uptime:${alignr}${color}${uptime}
 
@@ -75,7 +75,7 @@ ${voffset -10}${color1}${font led:size=15}CPU ${font}$hr
 ${color grey}CPU Temp:$color ${alignr} ${exec sensors | grep Tdie | awk '{print $2 " "}' | tr --delete "+)"}
 ${color grey}CPU Usage:$color ${alignr} $cpu% 
 ${cpubar 20}
-${color6}${font led:size=10}Total processes: ${color}${alignr}${processes}
+#${color6}${font led:size=10}Total processes: ${color}${alignr}${processes}
 
 #TOP CPU/RAM
 ${voffset -7}${color1}${font}NAME ${goto 125}PID${goto 165}CPU% ${alignr}MEM%
@@ -93,9 +93,12 @@ ${membar 20}
 #DRIVES
 ${voffset -6}${color1}${font led:size=15}DRIVE${font}$hr
 ${color6}${font :size=10}root:${goto 100}${color}${fs_used /} / ${fs_size /} ${alignr} ${fs_used_perc /}%
+${fs_bar /}
+
 ${color6}${font :size=10}DATA:${goto 100}${color}${fs_used /mnt/DATA} / ${fs_size /mnt/DATA} ${alignr} ${fs_used_perc /mnt/DATA}%
-${color6}${font :size=10}backup:${goto 100}${color}${fs_used /mnt/backup} / ${fs_size /mnt/backup} ${alignr} ${fs_used_perc /mnt/backup}%
+${fs_bar /mnt/DATA}%
 #${color6}${font :size=10}Network:${goto 100}${color}${fs_used /mnt/NetworkDrive} / ${fs_size /mnt/NetworkDrive} ${alignr} ${fs_used_perc /mnt/NetworkDrive}%
+
 
 #NETWORK
 ${voffset -10}${color1}${font led:size=15}NETWORK${font}$hr
@@ -109,22 +112,3 @@ Down: ${downspeed enp5s0}/s
 Day: ${totaldown enp5s0}${voffset -12}${alignr}${downspeedgraph enp5s0 25,100 64574e 64574e}
 Up: ${upspeed enp5s0}/s
 Day: ${totalup enp5s0}${voffset -12}${alignr}${upspeedgraph enp5s0 25,100 64574e 64574e}
-#OPEN PORTS
-${voffset -20}
-${goto 9}${color1}${font led:size=15}OPEN PORTS${font}$hr
-${goto 9}${font led:size=10,weight:bold}${color1}IP${alignr}DPORT
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  0}${alignr 1}${tcp_portmon 1 65535 rport  0}
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  1}${alignr 1}${tcp_portmon 1 65535 rport  1}
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  2}${alignr 1}${tcp_portmon 1 65535 rport  2}
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  3}${alignr 1}${tcp_portmon 1 65535 rport  3}
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  4}${alignr 1}${tcp_portmon 1 65535 rport  4}
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  5}${alignr 1}${tcp_portmon 1 65535 rport  5}
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  6}${alignr 1}${tcp_portmon 1 65535 rport  6}
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  7}${alignr 1}${tcp_portmon 1 65535 rport  7}
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  8}${alignr 1}${tcp_portmon 1 65535 rport  8}
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip  9}${alignr 1}${tcp_portmon 1 65535 rport  9}
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip 10}${alignr 1}${tcp_portmon 1 65535 rport 10}
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip 11}${alignr 1}${tcp_portmon 1 65535 rport 11}
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip 12}${alignr 1}${tcp_portmon 1 65535 rport 12}
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip 13}${alignr 1}${tcp_portmon 1 65535 rport 13}
-${goto 9}${font led:size=10,weight:normal}${color}${tcp_portmon 1 65535 rip 14}${alignr 1}${tcp_portmon 1 65535 rport 14}
