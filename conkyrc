@@ -57,16 +57,17 @@ TEXT
 
 #TIME
 ${color1}${goto 35}${font DejaVu Sans Mono:size=54}${time %H}${font DejaVu Sans Mono:size=30}${voffset -25}'${time %M}${font DejaVu Sans Mono:size=18}${voffset -12}${time %S}
-${color1}${goto 130}${voffset 1}${font :size=10}${time %A}
-${color1}${goto 130}${voffset 1}${font :size=10}${time %d %B %Y}
+${color1}${goto 130}${voffset 1}${font :size=12}${time %A}
+${color1}${goto 130}${voffset 1}${font :size=12}${time %d %B %Y}
 #CALENDAR
-#${color1}${font led:size=15}CALENDAR ${font}$hr
 ${color}${font Monospace:size=14}${execpi 60 DJS=$(date +%_d); gcal --starting-day=monday | sed s/'Mo Tu We Th Fr Sa Su'/'${color orange}Mo Tu We Th Fr Sa Su${color white}'/g | sed s/'<'/' '/g | sed s/'>'/' '/g | sed s/" $DJS "/'${color red}'" $DJS "'${color white}'/g}
 #SYSTEM
 ${color1}${font led:size=15}SYSTEM ${font}$hr
-${color6}${font led:size=10}OS:${alignr}${color}${exec cat /etc/lsb-release | grep DISTRIB_DESCRIPTION | cut -f2 -d'='}
-#${color6}${font led:size=10}CPU:${alignr}${color}${exec cat /proc/cpuinfo | grep -m 1 name | awk '{print $4 " " $5 " " $6 " " $7}'}
 ${color6}${font led:size=10}CPU:${alignr}${color}${exec cat /proc/cpuinfo | grep -m 1 name | awk '{$1=$2=$3=$4=""; print $0}'}
+${color6}${font led:size=10}GPU:${alignr}${color}${exec nvidia-smi -q | grep "Product Name" | awk -F ":" '{print $2}'} ${exec nvidia-smi -q | grep "Driver Version" | awk -F ":" '{print $2}'}
+${color6}${font led:size=10}MOBO:${alignr}${color}${exec cat /sys/devices/virtual/dmi/id/board_vendor} ${exec cat /sys/devices/virtual/dmi/id/board_name}
+
+${color6}${font led:size=10}OS:${alignr}${color}${exec cat /etc/lsb-release | grep DISTRIB_DESCRIPTION | cut -f2 -d'='}
 ${color6}${font led:size=10}Kernel: ${alignr}${color}$kernel
 ${color6}${font led:size=10}Uptime:${alignr}${color}${uptime}
 
@@ -75,7 +76,6 @@ ${voffset -10}${color1}${font led:size=15}CPU ${font}$hr
 ${color grey}CPU Temp:$color ${alignr} ${exec sensors | grep Tdie | awk '{print $2 " "}' | tr --delete "+)"}
 ${color grey}CPU Usage:$color ${alignr} $cpu% 
 ${cpugraph 40}
-#${color6}${font led:size=10}Total processes: ${color}${alignr}${processes}
 
 #TOP CPU/RAM
 ${voffset -7}${color1}${font}NAME ${goto 125}PID${goto 165}CPU% ${alignr}MEM%
