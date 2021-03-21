@@ -11,7 +11,7 @@ Added second conky config file `conkyrc2` which displays last 10 messages from k
 ## Google Keep conky
 Added third conky config file `conkyrc3` which displays note from your Google Keep account.
 
-# Installation
+![Imgur](https://i.imgur.com/2VBGWjx.png)
 
 ## Dependencies
 * python3
