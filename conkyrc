@@ -9,7 +9,8 @@ background yes
 border_width 5
 color0 8258FA #graph color		
 color1 FCAF3E #header color													
-color2 17BA91 #key color						
+color2 17BA91 #key color
+color3 D31A82 #RAM bargraph						
 
 cpu_avg_samples 2
 default_color e1e1e1		
@@ -50,9 +51,9 @@ xftfont sans:size=10
 TEXT
 
 #TIME
-${color1}${goto 35}${font DejaVu Sans Mono:size=54}${time %H}${font DejaVu Sans Mono:size=30}${voffset -25}'${time %M}${font DejaVu Sans Mono:size=18}${voffset -12}${time %S}
-${color1}${goto 130}${voffset 1}${font :size=10}${time %A}
-${color1}${goto 130}${voffset 1}${font :size=10}${time %d %B %Y}
+${color1}${goto 45}${font DejaVu Sans Mono:size=54}${time %H}${font DejaVu Sans Mono:size=30}${voffset -25}'${time %M}${font DejaVu Sans Mono:size=18}${voffset -12}${time %S}
+${color1}${goto 140}${voffset 1}${font :size=10}${time %A}
+${color1}${goto 140}${voffset 1}${font :size=10}${time %d %B %Y}
 #CALENDAR
 ${color}${font Monospace:size=16}${execpi 60 DJS=$(date +%_d); gcal --starting-day=monday | sed s/'Mo Tu We Th Fr Sa Su'/'${color orange}Mo Tu We Th Fr Sa Su${color white}'/g | sed s/'<'/' '/g | sed s/'>'/' '/g | sed s/" $DJS "/'${color red}'" $DJS "'${color white}'/g}
 #SYSTEM
@@ -72,7 +73,7 @@ ${color2}CPU Usage:$color ${alignr} $cpu%
 ${color0} ${cpugraph 40}
 
 #TOP CPU/RAM
-${voffset -7}${color1}${font}NAME ${goto 125}PID${goto 165}CPU% ${alignr}MEM%
+${voffset -7}${color1}${font}NAME ${goto 125}PID${goto 165}CPU%${goto 215}MEM%
 ${color2}${font :size=10}${goto 9}${top name 1}${color}${goto 115}${top pid 1}${goto 160}${top cpu 1}${goto 210}${top mem 1}
 ${color2}${font :size=10}${goto 9}${top name 2}${color}${goto 115}${top pid 2}${goto 160}${top cpu 2}${goto 210}${top mem 2}
 ${color2}${font :size=10}${goto 9}${top name 3}${color}${goto 115}${top pid 3}${goto 160}${top cpu 3}${goto 210}${top mem 3}
@@ -87,7 +88,7 @@ ${color2}GPU Usage:$color ${alignr} ${execpi 1 nvidia-smi -q -d UTILIZATION | gr
 #RAM
 ${voffset -6}${color1}${font led:size=15}RAM${font}$hr
 ${color2}${font :size=10}RAM:${goto 100}${color}${mem} / ${memmax} ${alignr} ${memperc}%
-${color0}${membar 12}
+${color3}${membar 12}
 
 #DRIVES
 ${voffset -6}${color1}${font led:size=15}DRIVE${font}$hr
