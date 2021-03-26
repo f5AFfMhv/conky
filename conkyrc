@@ -7,10 +7,10 @@ alignment top_right
 xinerama_head 1 #show on second display
 background yes
 border_width 5
-color0 8258FA #graph color		
-color1 FCAF3E #header color													
+color0 8258FA #graph color 1		
+color1 FCAF3E #header color							
 color2 17BA91 #key color
-color3 D31A82 #RAM bargraph						
+color3 FA5858 #graph color 2					
 
 cpu_avg_samples 2
 default_color e1e1e1		
