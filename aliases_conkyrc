@@ -1,5 +1,7 @@
 #!/usr/bin/conky -d -c
-# .conkyrc configuration for third conky window displaying Google Keep note
+# .conkyrc configuration for displaying aliases from bashrc
+#
+# By Martynas J. 2021
 
 alignment top_left
 xinerama_head 1 #show on second display
@@ -22,11 +24,11 @@ double_buffer yes
 draw_borders no
 draw_graph_borders no
 draw_outline no
-draw_shades yes
-gap_x 0
-gap_y -5
+draw_shades no
+gap_x 10
+gap_y 0
 max_user_text 10000
-maximum_width 1300
+maximum_width 800
 minimum_size 1300
 net_avg_samples 2
 no_buffers yes
@@ -52,4 +54,6 @@ xftfont sans:size=10
 
 TEXT
 
-${color1}${font led:size=15}${execpi 3600 gkeep search-notes --not-deleted "Projektai" | tail -n +3 | head -n -3 | sed '2i ${color6}${font Monospace:size=12}'}
+#HEADER
+${color1}${font DejaVu Sans Mono:size=12}ALIASES:
+${execpi 10 grep -E '^alias ' ~/.bashrc | sed 's/alias /${color}/g' | sed 's/\=\x27/${color8}${goto 100}/g' | sed 's/.$//'}

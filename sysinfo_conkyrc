@@ -1,7 +1,10 @@
 #!/usr/bin/conky -d -c
-# .conkyrc configuration.
+# .conkyrc configuration file for displaying system information.
 # code base is from didi79
 # https://www.deviantart.com/didi79/art/conky-config-127651851
+#
+# By Martynas J. 2021
+
 
 alignment top_right
 xinerama_head 1 #show on second display
@@ -18,11 +21,11 @@ default_outline_color 000000
 default_shade_color 000000
 double_buffer yes
 draw_borders no
-draw_graph_borders no
+draw_graph_borders yes
 draw_outline no
-draw_shades yes
+draw_shades no
 gap_x 5
-gap_y 5
+gap_y 0
 max_user_text 10000
 maximum_width 250
 minimum_size 850
@@ -56,6 +59,7 @@ ${color1}${goto 140}${voffset 1}${font :size=10}${time %A}
 ${color1}${goto 140}${voffset 1}${font :size=10}${time %d %B %Y}
 #CALENDAR
 ${color}${font Monospace:size=16}${execpi 60 DJS=$(date +%_d); gcal --starting-day=monday | sed s/'Mo Tu We Th Fr Sa Su'/'${color orange}Mo Tu We Th Fr Sa Su${color white}'/g | sed s/'<'/' '/g | sed s/'>'/' '/g | sed s/" $DJS "/'${color red}'" $DJS "'${color white}'/g}
+
 #SYSTEM
 ${color1}${font led:size=15}SYSTEM ${font}$hr
 ${color2}${font led:size=10}CPU:${alignr}${color}${exec cat /proc/cpuinfo | grep -m 1 name | awk '{$1=$2=$3=$4=""; print $0}'}

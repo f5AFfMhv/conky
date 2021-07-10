@@ -1,6 +1,8 @@
 #!/bin/bash
 
 #Gets COVID-19 statistics from https://corona-stats.online
+#
+# By Martynas J. 2020
 
 # Temp file locations
 FULL_TABLE="/tmp/corona.tmp"

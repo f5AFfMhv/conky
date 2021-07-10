@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
-# Opens text document which contains stdo of "curl ipinfo.io"
+# Opens text document which contains stdout of "curl ipinfo.io"
 # and processes text for conky
 #
-# by Martynas J.
+# by Martynas J. 2019
 
 import sys
 
