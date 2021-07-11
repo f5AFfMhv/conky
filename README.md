@@ -11,6 +11,8 @@ Conky configuration which displays last 10 messages from `kern.log` file.
 Conky configuration for displaying COVID-19 single country statistics. Stats is collected by `corona.sh` from https://corona-stats.online
 ## aliases_conkyrc
 Conky configuration which displays user aliases from `.bashrc`. To exclude alias from this list add space before `alias` keyword in .bashrc file.
+## meteo_conkyrc
+Conky configuration which displays hourly weather forecast from https://api.meteo.lt service.
 ## gkeep_conkyrc [DEPRECATED]
 Conky configuration which displays note from your Google Keep account.  
 ![Imgur](https://i.imgur.com/2VBGWjx.png)

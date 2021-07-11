@@ -1,5 +1,5 @@
 #!/usr/bin/conky -d -c
-# .conkyrc configuration for displaying COVID-19 single country statistics 
+# .conkyrc configuration for displaying weather info from meteo.lt
 #
 # By Martynas J. 2021
 
@@ -7,9 +7,10 @@ alignment bottom_left
 xinerama_head 1 #show on second display
 background yes
 border_width 5
-color0 555555		
-color1 FCAF3E #header color							
-color2 17BA91 #key color		
+color0 8258FA #graph color 1		
+color1 FCAF3E #header color	
+color2 17BA91 #key color
+color3 FA5858 #graph color 2		
 default_color e1e1e1		
 default_outline_color 000000	
 default_shade_color 000000
@@ -19,10 +20,10 @@ draw_graph_borders no
 draw_outline no
 draw_shades no
 gap_x 10
-gap_y 150
+gap_y 300
 max_user_text 1000
-maximum_width 200
-minimum_size 200
+maximum_width 300
+minimum_size 300
 net_avg_samples 2
 no_buffers yes
 override_utf8_locale yes
@@ -36,7 +37,7 @@ own_window_class override
 pad_percents 2			
 short_units yes			
 stippled_borders 3
-text_buffer_size 1000
+text_buffer_size 10000
 total_run_times 0
 update_interval 10.0
 uppercase no
@@ -48,5 +49,8 @@ xftfont sans:size=10
 TEXT
 
 #HEADER
-${color1}${font DejaVu Sans Mono:size=12}COVID-19 in Lithuania
-${execpi 3600 ~/.config/conky/corona.sh Lithuania 1 8 4 7 5 | sed -e 1's/.*/${color2}Rank:${goto 100}${color}&/' | sed -e 2's/.*/${color2}Active:${goto 100}${color}&/' | sed -e 3's/.*/${color2}New Cases:${goto 100}${color}&/' | sed -e 4's/.*/${color2}Recovered:${goto 100}${color}&/' | sed -e 5's/.*/${color2}Deaths:${goto 100}${color}&/'}
+${color1}${font DejaVu Sans Mono:size=12}Weather forecast in Vilnius
+${color}${font DejaVu Sans Mono:size=10}(updated: ${execpi 3600 ~/.config/conky/meteo.sh -u})
+
+#FORECAST
+${font DejaVu Sans Mono:size=12}${execpi 3600 ~/.config/conky/meteo.sh --location vilnius --hours 12 | sed 's/\xe2\x84\x83/°C/g' | awk '{print "${color2}" $1 "${goto 70}${color3}" $2 "${goto 140}${color}" $3}'}

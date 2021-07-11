@@ -9,3 +9,4 @@ sleep 3
 /usr/bin/conky -q -c ~/.config/conky/covid_conkyrc
 #/usr/bin/conky -q -c ~/.config/conky/gkeep_conkyrc
 /usr/bin/conky -q -c ~/.config/conky/aliases_conkyrc
+/usr/bin/conky -q -c ~/.config/conky/meteo_conkyrc

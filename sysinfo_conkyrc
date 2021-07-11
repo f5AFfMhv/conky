@@ -11,7 +11,7 @@ xinerama_head 1 #show on second display
 background yes
 border_width 5
 color0 8258FA #graph color 1		
-color1 FCAF3E #header color							
+color1 FCAF3E #header color	
 color2 17BA91 #key color
 color3 FA5858 #graph color 2					
 
@@ -37,7 +37,7 @@ own_window yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 own_window_argb_visual yes
 own_window_transparent yes
-own_window_type conky
+own_window_type normal
 own_window_class override
 pad_percents 2			
 short_units yes			

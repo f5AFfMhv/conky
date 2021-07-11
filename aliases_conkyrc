@@ -8,15 +8,8 @@ xinerama_head 1 #show on second display
 background yes
 border_width 5
 color0 555555		
-color1 FCAF3E			
-color2 64574e			
-color3 a82553			
-color4 5e1014			
-color5 64574e			
-color6 a7a7a7			
-color7 8888CC			
-color8 9d9c61			
-color9 525276			
+color1 FCAF3E #header color	
+color2 17BA91 #key color		
 default_color e1e1e1		
 default_outline_color 000000	
 default_shade_color 000000
@@ -38,7 +31,7 @@ own_window yes
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 own_window_argb_visual yes
 own_window_transparent yes
-own_window_type conky
+own_window_type normal
 own_window_class override
 pad_percents 2			
 short_units yes			
@@ -55,5 +48,5 @@ xftfont sans:size=10
 TEXT
 
 #HEADER
-${color1}${font DejaVu Sans Mono:size=12}ALIASES:
-${execpi 10 grep -E '^alias ' ~/.bashrc | sed 's/alias /${color}/g' | sed 's/\=\x27/${color8}${goto 100}/g' | sed 's/.$//'}
+${color1}${font DejaVu Sans Mono:size=12}Aliases
+${execpi 10 grep -E '^alias ' ~/.bashrc | sed 's/alias /${color2}/g' | sed 's/\=\x27/${color}${goto 100}/g' | sed 's/.$//'}
