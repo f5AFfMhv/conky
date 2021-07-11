@@ -1,7 +1,7 @@
 # My conky template
 Code base is from <a href="https://www.deviantart.com/didi79/art/conky-config-127651851">`didi79`</a>
 
-![Imgur](https://i.imgur.com/7ozwjc4.png)
+![Imgur](https://i.imgur.com/JeSErwc.png)
 
 ## sysinfo_conkyrc
 Conky configuration for displaying time, calendar and main system information. This conkyrc uses `get_publicIP.py` script to determine your public IP address from https://ipinfo.io service.
@@ -12,7 +12,7 @@ Conky configuration for displaying COVID-19 single country statistics. Stats is 
 ## aliases_conkyrc
 Conky configuration which displays user aliases from `.bashrc`. To exclude alias from this list add space before `alias` keyword in .bashrc file.
 ## meteo_conkyrc
-Conky configuration which displays hourly weather forecast from https://api.meteo.lt service.
+Conky configuration which uses `meteo.sh` script to display hourly weather forecast from https://api.meteo.lt service.
 ## gkeep_conkyrc [DEPRECATED]
 Conky configuration which displays note from your Google Keep account.  
 ![Imgur](https://i.imgur.com/2VBGWjx.png)
